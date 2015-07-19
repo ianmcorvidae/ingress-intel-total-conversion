@@ -2,7 +2,7 @@
 // @id             iitc-plugin-bookmarks@ZasoGD
 // @name           IITC plugin: Bookmarks for maps and portals
 // @category       Controls
-// @version        0.2.12.2015-07-19-2
+// @version        0.2.12.2015-07-19-3
 // @namespace      https://github.com/jonatkins/ingress-intel-total-conversion
 // @updateURL      https://github.com/ianmcorvidae/ingress-intel-total-conversion/raw/bookmarks-no-polygons/plugins/bookmarks-by-zaso.user.js
 // @downloadURL    https://github.com/ianmcorvidae/ingress-intel-total-conversion/raw/bookmarks-no-polygons/plugins/bookmarks-by-zaso.user.js
@@ -818,6 +818,9 @@ if(typeof window.plugin !== 'function') window.plugin = function() {};
       // TODO: add an API to draw-tools rather than assuming things about its internals
 
       var layer, layerType;
+      if(latlngs.length == 3) {
+          latlngs.push(latlngs[0]);
+      }
       layer = L.geodesicPolyline(latlngs, window.plugin.drawTools.lineOptions);
       layerType = 'polyline';
 
