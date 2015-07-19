@@ -2,10 +2,10 @@
 // @id             iitc-plugin-bookmarks@ZasoGD
 // @name           IITC plugin: Bookmarks for maps and portals
 // @category       Controls
-// @version        0.2.12.@@DATETIMEVERSION@@
+// @version        0.2.12.2015-07-19
 // @namespace      https://github.com/jonatkins/ingress-intel-total-conversion
-// @updateURL      @@UPDATEURL@@
-// @downloadURL    @@DOWNLOADURL@@
+// @updateURL      https://github.com/ianmcorvidae/ingress-intel-total-conversion/raw/bookmarks-no-polygons/plugins/bookmarks-by-zaso.user.js
+// @downloadURL    https://github.com/ianmcorvidae/ingress-intel-total-conversion/raw/bookmarks-no-polygons/plugins/bookmarks-by-zaso.user.js
 // @description    [@@BUILDNAME@@-@@BUILDDATE@@] Save your favorite Maps and Portals and move the intel map with a click. Works with sync.
 // @include        https://www.ingress.com/intel*
 // @include        http://www.ingress.com/intel*
@@ -816,13 +816,8 @@
       // TODO: add an API to draw-tools rather than assuming things about its internals
 
       var layer, layerType;
-      if(latlngs.length == 2) {
-        layer = L.geodesicPolyline(latlngs, window.plugin.drawTools.lineOptions);
-        layerType = 'polyline';
-      } else {
-        layer = L.geodesicPolygon(latlngs, window.plugin.drawTools.polygonOptions);
-        layerType = 'polygon';
-      }
+      layer = L.geodesicPolyline(latlngs, window.plugin.drawTools.lineOptions);
+      layerType = 'polyline';
 
       map.fire('draw:created', {
         layer: layer,
